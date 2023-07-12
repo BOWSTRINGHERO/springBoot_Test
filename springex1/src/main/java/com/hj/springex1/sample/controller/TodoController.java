@@ -30,4 +30,9 @@ public class TodoController {
         log.info("POST todo register......");
         log.info(todoDTO);
     }
+
+    @GetMapping("/register")
+    public void registerGET() {
+        log.info("Get todo register......");
+    }
 }

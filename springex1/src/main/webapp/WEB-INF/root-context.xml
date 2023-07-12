@@ -11,8 +11,6 @@
 
 <!--    <context:component-scan base-package="com.hj.springex1.sample"/>-->
 
-    <context:component-scan base-package="com.hj.springex1.sample"></context:component-scan>
-
     <bean id="hiakriConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name ="driverClassName" value = "org.mariadb.jdbc.Driver"></property>
         <property name="jdbcUrl" value="jdbc:mariadb://localhost:3307/webdb"></property>
@@ -38,5 +36,8 @@
     </bean>
 
     <mybatis:scan base-package="com.hj.springex1.sample.mapper"></mybatis:scan>
+
+    <context:component-scan base-package="com.hj.springex1.sample.config"/>
+    <context:component-scan base-package="com.hj.springex1.sample.service"/>
 
 </beans>

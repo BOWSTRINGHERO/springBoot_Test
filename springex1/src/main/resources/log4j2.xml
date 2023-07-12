@@ -13,8 +13,12 @@
             <appender-ref ref="console"/>
         </logger>
 
-        <logger name="org.zerock" level="INFO" additivity="false">
+        <logger name="com.hj.springex1" level="INFO" additivity="false">
             <appender-ref ref="console"/>
+        </logger>
+
+        <logger name="com.hj.springex1.sample.mapper" level="TRACE" additivity="false">
+            <appender-ref ref = "console"></appender-ref>
         </logger>
 
         <root level="INFO" additivity="false">

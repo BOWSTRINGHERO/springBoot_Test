@@ -1,8 +1,8 @@
 package com.hj.zerock.springex.sample.mapper;
 
 
-import com.hj.springex1.sample.mapper.TimeMapper;
-import com.hj.springex1.sample.mapper.TimeMapper2;
+import com.hj.springex1.sample.dto.TodoDTO;
+import com.hj.springex1.sample.service.TodoService;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,16 +10,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDate;
+
 @Log4j2
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/root-context.xml")
 
-public class TimeMapperTests {
-    @Autowired(required = false)
-    private TimeMapper2 timeMapper2;
+public class TodoServiceTests {
+    @Autowired
+    private TodoService todoService;
 
     @Test
-    public void testGetTimme() {
-        log.info(timeMapper2.getNow());
+    public void todoRegister() {
+        TodoDTO todoDTO = TodoDTO.builder().title("Test...").dueDate(LocalDate.now()).writer("user1").build();
+
+        todoService.register(todoDTO);
     }
+
+
 }
+
