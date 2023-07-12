@@ -20,7 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class TodoController {
     @RequestMapping("/list")
     public void list(Model model) {
-        log.info("todo list......")
+        log.info("todo list......");
     }
 
     @GetMapping("/register")
@@ -29,7 +29,7 @@ public class TodoController {
     }
 
     @PostMapping("/register")
-    public static registerPost(@Valid TodoDTO todoDTO,
+    public String registerPost(@Valid TodoDTO todoDTO,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
         log.info("POST todo register......");
@@ -38,7 +38,7 @@ public class TodoController {
             log.info("has errors......");
             redirectAttributes.addFlashAttribute("error", bindingResult.getAllErrors());
 
-            return "redirect:/todo/register"
+            return "redirect:/todo/register";
         }
         log.info(todoDTO);
 
