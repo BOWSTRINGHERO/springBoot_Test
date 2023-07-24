@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h4>[[${list}]]</h4>
+<hr/>
+<h4 th:text="${list}"></h4>
+
+<ul>
+  <li th:each="str, status: ${list} " >
+    [[ ${status.index} ]] -- [[ ${str} ]]
+  </li>
+</ul>
+<a th:href="@{/hello(name, age= 19) }"> Go to /hello </a>
+<ul>
+  <th:block th:each="str: ${list}">
+    <li> [[${str}]] </li>
+  </th:block>
+</ul>
+
+</body>
+</html>
